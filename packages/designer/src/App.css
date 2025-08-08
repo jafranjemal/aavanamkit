@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Example of CSS-first theme token customization */
+@theme {
+  --font-display: "Inter", sans-serif;
+  --color-primary: oklch(0.85 0.12 120);
+  --spacing: 0.25rem;
+}
+
+/* Now you can use utility classes and theme variables directly */

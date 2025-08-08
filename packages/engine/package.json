@@ -1,0 +1,24 @@
+{
+  "name": "engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "canvas": "^3.1.2",
+    "colornames": "^1.1.1",
+    "docx": "^9.5.1",
+    "jsbarcode": "^3.12.1",
+    "pdfkit": "^0.17.1"
+  }
+}

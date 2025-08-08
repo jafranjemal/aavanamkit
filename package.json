@@ -1,0 +1,19 @@
+{
+  "name": "aavanamkit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:designer": "npm run dev --workspace=@aavanamkit/designer",
+    "test:engine": "npm test --workspace=@aavanamkit/engine",
+    "build:all": "npm run build --workspaces"
+  },
+  "keywords": [],
+  "author": "The AavanamKit Project Contributors",
+  "license": "MIT",
+  "type": "commonjs"
+}
