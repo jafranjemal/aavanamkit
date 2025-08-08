@@ -1,8 +1,7 @@
 {
-  "name": "aavanamkit",
+  "name": "aavanamkit-monorepo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The main repository for the AavanamKit document generation ecosystem.",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -14,6 +13,5 @@
   },
   "keywords": [],
   "author": "The AavanamKit Project Contributors",
-  "license": "MIT",
-  "type": "commonjs"
+  "license": "MIT"
 }

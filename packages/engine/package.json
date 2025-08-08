@@ -1,14 +1,21 @@
 {
-  "name": "engine",
+  "name": "@aavanamkit/engine",
   "version": "1.0.0",
-  "description": "",
+  "description": "The headless Node.js engine for AavanamKit document generation.",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "aavanamkit",
+    "pdf",
+    "docx",
+    "document-generation",
+    "headless",
+    "nodejs"
+  ],
+  "author": "The AavanamKit Project Contributors",
+  "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
     "jest": "^30.0.5"
