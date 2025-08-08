@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "dev:designer": "npm run dev --workspace=@aavanamkit/designer",
+    "dev:demo": "npm run dev --workspace=@aavanamkit/demo",
     "test:engine": "npm test --workspace=@aavanamkit/engine",
     "build:all": "npm run build --workspaces"
   },

@@ -22,6 +22,7 @@ export default defineConfig({
       name: "AavanamKit",
       fileName: (format) => `aavanam-kit.${format}.js`,
     },
+    cssCodeSplit: true,
     rollupOptions: {
       // Make sure to externalize dependencies that shouldn't be bundled
       // into your library

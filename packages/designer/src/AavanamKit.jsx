@@ -6,7 +6,7 @@ import PropertiesPanel from "./components/PropertiesPanel";
 import DataSchemaModal from "./components/DataSchemaModal";
 import PageSettingsModal from "./components/PageSettingsModal";
 import TemplateGalleryModal from "./components/TemplateGalleryModal";
-
+import "./index.css";
 const AavanamKit = ({ template, data, schema, onSave }) => {
   const [isSchemaModalOpen, setSchemaModalOpen] = useState(false);
   const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
