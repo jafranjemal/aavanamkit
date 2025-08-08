@@ -32,7 +32,7 @@ jobs:
 
       # Step 3: Install all dependencies for our monorepo
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       # Step 4: Run the tests specifically for our engine package
       - name: Run Engine Tests
