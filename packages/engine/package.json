@@ -1,6 +1,6 @@
 {
   "name": "@aavanamkit/engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The headless Node.js engine for AavanamKit document generation.",
   "main": "src/index.js",
   "publishConfig": {
@@ -11,11 +11,27 @@
   },
   "keywords": [
     "aavanamkit",
+    "document-generation",
+    "pdf-generator",
+    "docx-generator",
+    "invoice-generator",
+    "report-builder",
+    "template-engine",
+    "wysiwyg",
+    "visual-builder",
+    "drag-and-drop",
+    "react",
+    "react-component",
+    "nodejs",
+    "headless",
     "pdf",
     "docx",
-    "document-generation",
-    "headless",
-    "nodejs"
+    "html",
+    "invoice",
+    "receipt",
+    "report",
+    "document",
+    "json-template"
   ],
   "author": "The AavanamKit Project Contributors",
   "license": "MIT",

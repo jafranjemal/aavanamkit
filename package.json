@@ -7,10 +7,11 @@
     "packages/*"
   ],
   "scripts": {
+    "build:designer": "npm run build --workspace=@aavanamkit/designer",
+    "build:demo": "npm run build:designer && npm run build --workspace=@aavanamkit/demo",
     "dev:designer": "npm run dev --workspace=@aavanamkit/designer",
     "dev:demo": "npm run dev --workspace=@aavanamkit/demo",
-    "test:engine": "npm test --workspace=@aavanamkit/engine",
-    "build:all": "npm run build --workspaces"
+    "test:engine": "npm test --workspace=@aavanamkit/engine"
   },
   "keywords": [],
   "author": "The AavanamKit Project Contributors",

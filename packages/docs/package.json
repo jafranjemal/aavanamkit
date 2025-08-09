@@ -1,5 +1,6 @@
 {
   "name": "docs",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,11 +10,11 @@
     "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "vitepress": "^1.6.4",
     "vue": "^3.5.18"
-  }
+  },
+  "author": "The AavanamKit Project Contributors",
+  "license": "MIT"
 }
