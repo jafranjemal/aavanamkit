@@ -3,6 +3,9 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/aavanam-kit.umd.js",
   "module": "./dist/aavanam-kit.es.js",
   "exports": {

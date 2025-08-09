@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The headless Node.js engine for AavanamKit document generation.",
   "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "jest"
   },
