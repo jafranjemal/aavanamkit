@@ -133,6 +133,7 @@ app.get('/api/invoices/:id/download', async (req, res) => {
   res.setHeader('Content-Type', 'application/pdf');
   res.send(pdfBuffer);
 });
+```
 
-Contributing
+# Contributing
 The AavanamKit Project is a community-driven, open-source initiative and we welcome contributions of all kinds. This project exists to save developers time
