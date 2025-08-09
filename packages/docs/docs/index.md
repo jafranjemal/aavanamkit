@@ -6,7 +6,7 @@ hero:
   text: "The Modern Document Generation Toolkit"
   tagline: Stop building documents. Start building a design studio for your users.
   image:
-    src: /hero-image.png # We will need to create this image
+    src: /hero.png # We will need to create this image
     alt: AavanamKit Designer UI
   actions:
     - theme: brand

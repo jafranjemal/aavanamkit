@@ -1,23 +1,27 @@
 <div align="center">
-<br />
-<p>
-
- 
-    <img src="./logo.svg" alt="AavanamKit Logo" width="150" />
- 
-</p>
-<h1 align="center">AavanamKit</h1>
-<p align="center">
-The open-source document generation ecosystem that gives the design power back to your users.
-<br />
-<a href="https://www.google.com/search?q=%5BYOUR_LIVE_DEMO_URL_HERE%5D"><strong>Explore the Live Demo »</strong></a>
-<br />
-<br />
-<a href="https://www.google.com/search?q=https://github.com/jafranjemal/aavanamkit/issues">Report Bug</a>
-
-<a href="https://www.google.com/search?q=https://github.com/jafranjemal/aavanamkit/issues">Request Feature</a>
-</p>
+  <br />
+  <p>
+    <img src="./AavanamKitLogo.png" alt="AavanamKit Logo" width="150" />
+  </p>
+  <h1 align="center">AavanamKit</h1>
+  <p align="center">
+    The open-source document generation ecosystem that gives the design power back to your users.
+    <br />
+    <a href="https://aavanamkit-demo.vercel.app/"><strong>Explore the Live Demo »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/jafranjemal/aavanamkit/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/jafranjemal/aavanamkit/issues">Request Feature</a>
+  </p>
 </div>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
+[![AavanamKit Engine CI](https://github.com/jafranjemal/aavanamkit/actions/workflows/engine-ci.yml/badge.svg)](https://github.com/jafranjemal/aavanamkit/actions/workflows/engine-ci.yml)
+[![GitHub stars](https://img.shields.io/github/stars/jafranjemal/aavanamkit?style=social)](https://github.com/jafranjemal/aavanamkit)
+[![npm version](https://img.shields.io/npm/v/@aavanamkit/designer)](https://www.npmjs.com/package/@aavanamkit/designer)
+[![npm downloads](https://img.shields.io/npm/dm/@aavanamkit/designer)](https://www.npmjs.com/package/@aavanamkit/designer)
+
 
 ## The Endless Cycle We All Hate
 
@@ -44,10 +48,19 @@ You build the tool once, and you are free. You empower your users, eliminate a w
 ## 🚀 Live Demo & Sample Templates
 
 Seeing is believing. We've built a full live demo where you can experience the power of the AavanamKit designer right in your browser, no installation required.
+ 
+---
+ ## 🚀 Live Demo & Documentation
+ 
+ Seeing is believing. We've built a full live demo and a comprehensive documentation site.
+ 
+ * **[ &raquo; Try the Live Demo Now! ](https://aavanamkit-demo.vercel.app/)**
+ * **[ &raquo; Read the Official Docs ](https://aavanamkit-docs.vercel.app/)**
+ 
+ The demo comes pre-loaded with a gallery of professional templates. The complete source code for these templates can be found in the [`packages/designer/src/lib/templates.js`](./packages/designer/src/lib/templates.js) file.
+ 
+---
 
-**» Try the Live Demo Now!**
-https://aavanamkit-demo.vercel.app/
-<br />
 The demo comes pre-loaded with a gallery of professional templates for a mobile repair shop, showcasing the versatility of the designer:
 
 - **A full A4 Service Invoice**: A standard, comprehensive invoice perfect for detailed billing.
