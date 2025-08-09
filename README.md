@@ -1,7 +1,10 @@
 <div align="center">
 <br />
 <p>
-<img src="https://www.google.com/search?q=https://placehold.co/150x150/2D68FF/FFFFFF%3Ftext%3DA" alt="AavanamKit Logo" width="150" />
+
+ 
+    <img src="./logo.svg" alt="AavanamKit Logo" width="150" />
+ 
 </p>
 <h1 align="center">AavanamKit</h1>
 <p align="center">
@@ -11,7 +14,7 @@ The open-source document generation ecosystem that gives the design power back t
 <br />
 <br />
 <a href="https://www.google.com/search?q=https://github.com/jafranjemal/aavanamkit/issues">Report Bug</a>
-·
+
 <a href="https://www.google.com/search?q=https://github.com/jafranjemal/aavanamkit/issues">Request Feature</a>
 </p>
 </div>
