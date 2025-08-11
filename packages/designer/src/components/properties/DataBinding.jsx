@@ -10,7 +10,7 @@ const getSchemaPaths = (schema) => {
   //   return [];
   // }
 
-  const schemaPath = JSON.parse(schema)
+  const schemaPath = typeof schema ==="string" ?  JSON.parse(schema) : schema
  
 
 
