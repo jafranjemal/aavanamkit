@@ -20,8 +20,8 @@
     "./style.css": "./dist/AavanamKit.css"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
+    
   ],
   "scripts": {
     "dev": "vite",
