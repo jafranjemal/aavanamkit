@@ -2,7 +2,7 @@
   "name": "@aavanamkit/designer",
   "private": false,
   "homepage": "https://aavanamkit-demo.vercel.app/",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -20,8 +20,7 @@
     "./style.css": "./dist/AavanamKit.css"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",

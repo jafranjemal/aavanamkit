@@ -3,7 +3,7 @@ import AavanamKit from "@aavanamkit/designer";
 
 // Since the designer is not yet published, we need to tell our bundler
 // where to find its CSS. This path works because of the monorepo structure.
-import "../../designer/dist/AavanamKit.css";
+import '@aavanamkit/designer/dist/AavanamKit.css';
 
 // A sample schema for our demo
 const sampleSchema = {
