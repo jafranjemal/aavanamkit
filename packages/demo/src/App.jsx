@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AavanamKit from "@aavanamkit/designer";
+import AavanamKit from '@aavanamkit/designer';
 
 // Since the designer is not yet published, we need to tell our bundler
 // where to find its CSS. This path works because of the monorepo structure.
