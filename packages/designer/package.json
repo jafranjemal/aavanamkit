@@ -1,6 +1,7 @@
 {
   "name": "@aavanamkit/designer",
   "private": false,
+   "homepage": "https://aavanamkit-demo.vercel.app/",
   "version": "1.0.23",
   "type": "module",
   "publishConfig": {
