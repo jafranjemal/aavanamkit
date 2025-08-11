@@ -4,15 +4,14 @@
   "description": "The main repository for the AavanamKit document generation ecosystem.",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+      "!packages/demo" 
   ],
   "scripts": {
-    "build:designer": "npm run build --workspace=@aavanamkit/designer",
-    "build:demo": "npm run build --workspace=@aavanamkit/demo",
-    "install:vercel": "npm install && npm run build:designer",
     "dev:designer": "npm run dev --workspace=@aavanamkit/designer",
-    "dev:demo": "npm run dev --workspace=@aavanamkit/demo",
-    "test:engine": "npm test --workspace=@aavanamkit/engine"
+    "dev:demo": "npm run dev --prefix packages/demo",
+    "test:engine": "npm test --workspace=@aavanamkit/engine",
+    "build:all": "npm run build --workspaces"
   },
   "keywords": [],
   "author": "The AavanamKit Project Contributors",
