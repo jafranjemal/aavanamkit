@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Group, Rect, Text } from "react-konva";
-import Konva from "konva";
+
+import * as Konva from "konva";
 
 // A helper function to calculate the wrapped height of a text string.
 const getWrappedTextHeight = (text, width, fontSize) => {

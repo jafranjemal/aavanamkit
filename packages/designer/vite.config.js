@@ -1,24 +1,15 @@
-// import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
-// import tailwindcss from "@tailwindcss/vite";
-
-// // https://vite.dev/config/
-// export default defineConfig({
-//   plugins: [react(), tailwindcss()],
-// });
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path"; // <-- Import resolve from path
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   // Library mode configuration
   build: {
     lib: {
       entry: resolve(__dirname, "src/AavanamKit.jsx"), // <-- Your library's entry point
+      //   formats: ["es", "umd"], // <-- build both ESM and UMD
       name: "AavanamKit",
       fileName: (format) => `aavanam-kit.${format}.js`,
     },
@@ -29,12 +20,12 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
-        "konva",
-        "react-konva",
-        "jspdf",
-        "jsbarcode",
-        "uuid",
-        "use-image",
+        // "konva",
+        // "react-konva",
+        // "jspdf",
+        // "jsbarcode",
+        // "uuid",
+        // "use-image",
       ],
       output: {
         // Provide global variables to use in the UMD build
@@ -42,12 +33,12 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          konva: "Konva",
-          "react-konva": "ReactKonva",
-          jspdf: "jsPDF",
-          jsbarcode: "JsBarcode",
-          uuid: "uuid",
-          "use-image": "useImage",
+          // konva: "Konva",
+          // "react-konva": "ReactKonva",
+          // jspdf: "jsPDF",
+          // jsbarcode: "JsBarcode",
+          // uuid: "uuid",
+          // "use-image": "useImage",
         },
       },
     },

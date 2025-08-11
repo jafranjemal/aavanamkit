@@ -12,8 +12,25 @@ const DataSchemaModal = ({ isOpen, onClose }) => {
       : JSON.stringify(state.dataSchema, null, 2)
   );
 
+   const handleFormat = () => {
+    try {
+      // Parse the (potentially messy) text using JSON5
+      const parsedSchema = JSON5.parse(schemaText);
+      // Re-serialize it with standard JSON formatting (2-space indent)
+      const formattedSchema = JSON.stringify(parsedSchema, null, 2);
+      setSchemaText(formattedSchema);
+    } catch (error) {
+      alert('Invalid JSON format. Cannot prettify.');
+    }
+  };
+
+
   useEffect(() => {
-    setSchemaText(state.dataSchema);
+    const schema =  typeof state.dataSchema === "string"
+      ? state.dataSchema
+      : JSON.stringify(state.dataSchema, null, 2)
+
+    setSchemaText( schema);
   }, [state.dataSchema]);
 
   const handleSave = () => {
@@ -44,21 +61,30 @@ const DataSchemaModal = ({ isOpen, onClose }) => {
   };
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Define Data Schema">
-      <p className="text-sm text-gray-600 mb-4">
+      <p className="ak:text-sm ak:text-gray-600 ak:mb-4">
         Define the JSON structure for your invoice data. Use this schema to bind
         elements in the designer. For example:&nbsp;
         <code>{`{ customerName: "John Doe", items: [{ name: "Item 1", price: 10 }] }`}</code>
       </p>
-
+ 
       <textarea
-        className="w-full h-80 p-2 border rounded font-mono text-sm"
+        className="ak:w-full ak:h-80 ak:p-2 ak:border ak:rounded ak:font-mono ak:text-sm"
         value={schemaText}
         onChange={(e) => setSchemaText(e.target.value)}
       />
-      <div className="flex justify-end mt-4">
+      <div className="ak:flex ak:gap-2 ak:justify-end ak:mt-4">
+
+           <button 
+          onClick={handleFormat} 
+          className="ak:px-6 ak:py-2 ak:bg-green-600 ak:text-white ak:rounded ak:hover:bg-green-700"
+
+        >
+          Prettify JSON
+        </button>
+
         <button
           onClick={handleSave}
-          className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="ak:px-6 ak:py-2 ak:bg-blue-600 ak:text-white ak:rounded ak:hover:bg-blue-700"
         >
           Save Schema
         </button>

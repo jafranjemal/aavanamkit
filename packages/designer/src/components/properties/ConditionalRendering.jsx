@@ -24,11 +24,11 @@ const ConditionalRendering = ({ element }) => {
   };
 
   return (
-    <div className="mt-4 pt-4 border-t">
-      <h3 className="text-md font-medium text-gray-800 mb-2 border-b">
+    <div className="ak:mt-4 ak:pt-4 ak:border-t">
+      <h3 className="ak:text-md ak:font-medium ak:text-gray-800 ak:mb-2 ak:border-b">
         Conditional Rendering
       </h3>
-      <p className="text-xs text-gray-500 mb-2">Show this element if...</p>
+      <p className="ak:text-xs ak:text-gray-500 ak:mb-2">Show this element if...</p>
       <PropertyInput
         label="Data Field"
         placeholder="e.g., discount"

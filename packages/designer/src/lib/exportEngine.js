@@ -1,10 +1,11 @@
 import jsPDF from "jspdf";
 import { Packer } from "docx";
-import { saveAs } from "file-saver";
+
+import * as FileSaver from "file-saver";
 import { buildDocx } from "./docxBuilder"; // We will create this next
 import { exportToPdf as exPdf } from "./pdfExporter"; // We will create this next
-import Konva from "konva";
-import JsBarcode from "jsbarcode";
+import * as Konva from "konva";
+import * as JsBarcode from "jsbarcode";
 // --- Central HTML Generation ---
 // Creates a self-contained HTML string from the template and data
 const generatePrintHtml = (template, data) => {
@@ -74,7 +75,11 @@ const generatePrintHtml = (template, data) => {
       case "Barcode": {
         // Barcodes are rendered to a canvas and converted to a data URL.
         const canvas = document.createElement("canvas");
-        JsBarcode(canvas, elementData.text, { displayValue: false, margin: 0 });
+        const barcodeGenerator = JsBarcode.default || JsBarcode;
+        barcodeGenerator(canvas, elementData.text, {
+          displayValue: false,
+          margin: 0,
+        });
         return `<img src="${canvas.toDataURL()}" style="${style}" />`;
       }
       default:
@@ -373,7 +378,11 @@ export const exportToPdf = async (template, data) => {
         case "Barcode": {
           const canvas = document.createElement("canvas");
           try {
-            JsBarcode(canvas, props.text, { displayValue: false, margin: 0 });
+            const barcodeGenerator = JsBarcode.default || JsBarcode;
+            barcodeGenerator(canvas, props.text, {
+              displayValue: false,
+              margin: 0,
+            });
           } catch (e) {}
           node = new Konva.Image({ ...props, image: canvas });
           break;
@@ -498,7 +507,7 @@ export const exportToPrinter = (template, data) => {
 export const exportToHtmlFile = (template, data) => {
   const html = generatePrintHtml(template, data);
   const blob = new Blob([html], { type: "text/html;charset=utf-8" });
-  saveAs(blob, "invoice.html");
+  FileSaver.saveAs(blob, "invoice.html");
 };
 
 export const exportToDocx = async (template, data) => {
@@ -514,7 +523,7 @@ export const exportToDocx = async (template, data) => {
   const blob = await Packer.toBlob(doc);
 
   console.log("Saving file...");
-  saveAs(blob, "AavanamKit-Invoice.docx");
+  FileSaver.saveAs(blob, "AavanamKit-Invoice.docx");
 };
 
 // export const exportToDocx = async (template, data) => {

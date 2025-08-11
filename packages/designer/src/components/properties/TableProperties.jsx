@@ -29,8 +29,8 @@ const TableProperties = ({ element, updateProperty }) => {
   return (
     <div>
       {/* Header Styling */}
-      <div className="p-2 border rounded mb-3">
-        <h4 className="font-semibold text-sm mb-2">Header Styling</h4>
+      <div className="ak:p-2 ak:border ak:rounded ak:mb-3">
+        <h4 className="ak:font-semibold ak:text-sm ak:mb-2">Header Styling</h4>
         <PropertyInput
           label="Height"
           type="number"
@@ -66,8 +66,8 @@ const TableProperties = ({ element, updateProperty }) => {
       </div>
 
       {/* Row Styling */}
-      <div className="p-2 border rounded mb-3">
-        <h4 className="font-semibold text-sm mb-2">Row Styling</h4>
+      <div className="ak:p-2 ak:border ak:rounded ak:mb-3">
+        <h4 className="ak:font-semibold ak:text-sm ak:mb-2">Row Styling</h4>
         <PropertyInput
           label="Min Height"
           type="number"
@@ -111,15 +111,15 @@ const TableProperties = ({ element, updateProperty }) => {
       </div>
 
       {/* Column Definitions */}
-      <div className="p-2 border rounded mb-3">
-        <h4 className="font-semibold text-sm mb-2">Table Columns</h4>
+      <div className="ak:p-2 ak:border ak:rounded ak:mb-3">
+        <h4 className="ak:font-semibold ak:text-sm ak:mb-2">Table Columns</h4>
         {columns.map((col, index) => (
-          <div key={index} className="p-2 border rounded mb-2 bg-gray-50">
-            <div className="flex justify-between items-center mb-2">
-              <span className="font-medium text-sm">Column {index + 1}</span>
+          <div key={index} className="ak:p-2 ak:border ak:rounded ak:mb-2 ak:bg-gray-50">
+            <div className="ak:flex ak:justify-between ak:items-center ak:mb-2">
+              <span className="ak:font-medium ak:text-sm">Column {index + 1}</span>
               <button
                 onClick={() => removeColumn(index)}
-                className="text-red-500 hover:text-red-700"
+                className="ak:text-red-500 ak:hover:text-red-700"
               >
                 <FaTrash />
               </button>
@@ -150,9 +150,9 @@ const TableProperties = ({ element, updateProperty }) => {
         ))}
         <button
           onClick={addColumn}
-          className="flex items-center text-sm text-blue-600 hover:text-blue-800"
+          className="ak:flex ak:items-center ak:text-sm ak:text-blue-600 ak:hover:text-blue-800"
         >
-          <FaPlus className="mr-2" /> Add Column
+          <FaPlus className="ak:mr-2" /> Add Column
         </button>
       </div>
     </div>

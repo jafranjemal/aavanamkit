@@ -26,7 +26,7 @@ const TemplatePreview = ({ template, previewWidth }) => {
 
   return (
     <div
-      className="bg-white shadow-md border"
+      className="ak:bg-white ak:shadow-md ak:border"
       style={{ width: previewWidth, height: pageSettings.height * scale }}
     >
       <Stage

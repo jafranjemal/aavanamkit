@@ -1,23 +1,26 @@
 {
   "name": "@aavanamkit/designer",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.22",
   "type": "module",
   "publishConfig": {
     "access": "public"
   },
   "main": "./dist/aavanam-kit.umd.js",
   "module": "./dist/aavanam-kit.es.js",
+  "unpkg": "./dist/aavanam-kit.umd.js",
   "exports": {
-    "development": {
-      "import": "./src/AavanamKit.jsx"
+    ".": {
+      "import": "./dist/aavanam-kit.es.js",
+      "require": "./dist/aavanam-kit.umd.js"
     },
-    "import": "./dist/aavanam-kit.es.js",
-    "require": "./dist/aavanam-kit.umd.js",
-    "style": "./dist/AavanamKit.css"
+    "./dist/AavanamKit.css": "./dist/AavanamKit.css",
+    "./style": "./dist/AavanamKit.css",
+    "./style.css": "./dist/AavanamKit.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "dev": "vite",

@@ -72,13 +72,13 @@ const PropertiesPanel = () => {
   const SpecificProperties = element ? propertiesMap[element.type] : null;
 
   return (
-    <div className="w-80 bg-white p-4 shadow-lg overflow-y-auto flex flex-col">
-      <div className="flex-grow">
-        <h2 className="text-lg font-semibold border-b pb-2 mb-4">Properties</h2>
+    <div className="ak:w-80 ak:bg-white ak:p-4 ak:shadow-lg ak:overflow-y-auto ak:flex ak:flex-col">
+      <div className="ak:flex-grow">
+        <h2 className="ak:text-lg ak:font-semibold ak:border-b ak:pb-2 ak:mb-4">Properties</h2>
         {element ? (
           <div>
             {/* Common Properties */}
-            <h3 className="text-md font-medium text-gray-800 mb-2 border-b">
+            <h3 className="ak:text-md ak:font-medium ak:text-gray-800 ak:mb-2 ak:border-b">
               Position & Size
             </h3>
             <PropertyInput
@@ -124,8 +124,8 @@ const PropertiesPanel = () => {
 
             {/* Specific Properties */}
             {SpecificProperties && (
-              <div className="mt-4 pt-4 border-t">
-                <h3 className="text-md font-medium text-gray-800 mb-2 border-b">
+              <div className="ak:mt-4 ak:pt-4 ak:border-t">
+                <h3 className="ak:text-md ak:font-medium ak:text-gray-800 ak:mb-2 ak:border-b">
                   Element Specific
                 </h3>
                 <SpecificProperties
@@ -137,7 +137,7 @@ const PropertiesPanel = () => {
           </div>
         ) : (
           <div>
-            <h3 className="text-md font-medium text-gray-800 mb-2 border-b">
+            <h3 className="ak:text-md ak:font-medium ak:text-gray-800 ak:mb-2 ak:border-b">
               Page Properties
             </h3>
             <PropertyInput
@@ -155,8 +155,8 @@ const PropertiesPanel = () => {
                 updatePageProperty("backgroundImage", e.target.value)
               }
             />
-            <div className="mt-4 pt-4 border-t">
-              <label className="block text-sm font-medium text-gray-600 mb-1">
+            <div className="ak:mt-4 ak:pt-4 ak:border-t">
+              <label className="ak:block ak:text-sm ak:font-medium ak:text-gray-600 ak:mb-1">
                 Zoom ({Math.round(zoom * 100)}%)
               </label>
               <input
@@ -166,7 +166,7 @@ const PropertiesPanel = () => {
                 step="0.05"
                 value={zoom}
                 onChange={handleZoomChange}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                className="ak:w-full ak:h-2 ak:bg-gray-200 ak:rounded-lg ak:appearance-none ak:cursor-pointer"
               />
             </div>
           </div>
@@ -176,12 +176,12 @@ const PropertiesPanel = () => {
       {element && <ConditionalRendering element={element} />}
 
       {element && (
-        <div className="mt-4 pt-4 border-t">
+        <div className="ak:mt-4 ak:pt-4 ak:border-t">
           <button
             onClick={handleDelete}
-            className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            className="ak:w-full ak:flex ak:items-center ak:justify-center ak:px-4 ak:py-2 ak:border ak:border-transparent ak:rounded-md ak:shadow-sm ak:text-sm ak:font-medium ak:text-white ak:bg-red-600 ak:hover:bg-red-700 ak:focus:outline-none ak:focus:ring-2 ak:focus:ring-offset-2 ak:focus:ring-red-500"
           >
-            <FaTrash className="mr-2" /> Delete Element
+            <FaTrash className="ak:mr-2" /> Delete Element
           </button>
         </div>
       )}

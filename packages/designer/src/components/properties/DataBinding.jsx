@@ -1,33 +1,71 @@
 import React from "react";
 import { useDesigner, ActionTypes } from "../../context/DesignerContext";
+ 
 
-// A helper function to flatten the schema object into a list of paths
-const getSchemaPaths = (obj, prefix = "") => {
-  if (Array.isArray(obj)) {
-    const firstElement = obj.find((item) => item !== undefined);
-    if (firstElement !== undefined) {
-      return getSchemaPaths(firstElement, prefix + "[]");
+const getSchemaPaths = (schema) => {
+  // THE FIX: Add a robust validation check at the very beginning.
+  // If the input isn't a valid object or a non-empty array, return an empty array.
+
+  // if (typeof schema !== 'object' || schema === null || (Array.isArray(schema) && schema.length === 0)) {
+  //   return [];
+  // }
+
+  const schemaPath = JSON.parse(schema)
+ 
+
+
+  // This recursive helper function finds all possible paths.
+  function findPaths(currentValue, path = '') {
+    let arrayPaths = [];
+    let primitivePaths = [];
+
+    // Base Case: If the value is not an object or array, it's a primitive path.
+    if (typeof currentValue !== 'object' || currentValue === null) {
+      if (path) primitivePaths.push(path); // Only add if it has a path
+      return { arrays: arrayPaths, primitives: primitivePaths };
     }
-    return [prefix + "[]"];
+
+    // Case 1: The value is an array.
+    if (Array.isArray(currentValue)) {
+      const arrayPath = path ? `${path}[]` : 'root[]';
+      arrayPaths.push(arrayPath);
+
+      // Analyze the first item in the array to find its nested structure.
+      if (currentValue.length > 0) {
+        const subPaths = findPaths(currentValue[0], path || 'root');
+        arrayPaths = [...arrayPaths, ...subPaths.arrays];
+        primitivePaths = [...primitivePaths, ...subPaths.primitives];
+      }
+    } else {
+      // Case 2: The value is an object.
+      for (const key in currentValue) {
+        if (Object.prototype.hasOwnProperty.call(currentValue, key)) {
+          const newPath = path ? `${path}.${key}` : key;
+          const subPaths = findPaths(currentValue[key], newPath);
+          arrayPaths = [...arrayPaths, ...subPaths.arrays];
+          primitivePaths = [...primitivePaths, ...subPaths.primitives];
+        }
+      }
+    }
+    
+    return { arrays: arrayPaths, primitives: primitivePaths };
   }
 
-  if (typeof obj === "object" && obj !== null) {
-    return Object.keys(obj).reduce((acc, key) => {
-      const newPrefix = prefix ? `${prefix}.${key}` : key;
-      acc.push(...getSchemaPaths(obj[key], newPrefix));
-      return acc;
-    }, []);
-  }
+  // --- Main Execution ---
+  const { arrays, primitives } = findPaths(schemaPath);
+  
+  const uniqueArrays = [...new Set(arrays)].sort();
+  const uniquePrimitives = [...new Set(primitives)].sort();
 
-  // Handle primitives - only return path if prefix exists
-  return prefix ? [prefix] : [];
+  return [...uniqueArrays, ...uniquePrimitives];
 };
+
 const DataBinding = ({ element }) => {
   const { state, dispatch } = useDesigner();
   const schemaPaths = getSchemaPaths(state.dataSchema);
   const selectedBinding = (element && element.dataBinding?.field) || "";
 
-  console.log(schemaPaths);
+ 
   const handleBindingChange = (e) => {
     const field = e.target.value;
     // For tables, we bind the whole element. For others, just a property.
@@ -41,18 +79,20 @@ const DataBinding = ({ element }) => {
     });
   };
 
+   
+
   return (
-    <div className="mt-4 pt-4 border-t">
-      <h3 className="text-md font-medium text-gray-800 mb-2 border-b">
+    <div className="ak:mt-4 ak:pt-4 ak:border-t">
+      <h3 className="ak:text-md ak:font-medium ak:text-gray-800 ak:mb-2 ak:border-b">
         Data Binding
       </h3>
-      <label className="block text-sm font-medium text-gray-600 mb-1">
+      <label className="ak:block ak:text-sm ak:font-medium ak:text-gray-600 ak:mb-1">
         Bind to Schema Field
       </label>
       <select
         value={selectedBinding}
         onChange={handleBindingChange}
-        className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        className="ak:w-full ak:px-2 ak:py-1 ak:border ak:border-gray-300 ak:rounded-md ak:shadow-sm ak:focus:ring-indigo-500 ak:focus:border-indigo-500 ak:sm:text-sm"
       >
         <option value="">-- None --</option>
         {schemaPaths.map((path) => (
@@ -74,7 +114,7 @@ const DataBinding = ({ element }) => {
           ))} */}
       </select>
       {selectedBinding && (
-        <p className="text-xs text-green-600 mt-1">
+        <p className="ak:text-xs ak:text-green-600 ak:mt-1">
           Bound to: {selectedBinding}
         </p>
       )}

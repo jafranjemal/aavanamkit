@@ -12,10 +12,13 @@ import {
   FaCog,
   FaSave,
   FaPlusSquare,
+  FaMoon,
+  FaSun,
 } from "react-icons/fa";
 import { exportToPdf } from "../lib/pdfExporter"; // Import the exporter
 import { FaFileWord, FaFileCode, FaPrint } from "react-icons/fa";
 import * as exportEngine from "../lib/exportEngine"; // Import all exports
+import { ThemeSwitcher } from "./ThemeSwitcher";
 const Toolbar = ({
   onOpenSchema,
   data,
@@ -26,6 +29,14 @@ const Toolbar = ({
   const { state, dispatch } = useDesigner();
   const [isExportOpen, setExportOpen] = useState(false);
 
+    const toggleTheme = () => {
+    const newTheme = state.theme === 'light' ? 'dark' : 'light';
+    dispatch({
+      type: ActionTypes.SET_THEME,
+      payload: { theme: newTheme },
+    });
+  };
+
   const getTemplate = () => ({
     pageSettings: state.pageSettings,
     pages: state.pages,
@@ -35,10 +46,11 @@ const Toolbar = ({
     if (onSave) {
       // We pass the relevant parts of the state that constitute the template
       const template = {
+
         pageSettings: state.pageSettings,
         pages: state.pages,
       };
-      onSave(template);
+      onSave({template, dataSchema: state.dataSchema});
       alert("Template Saved! (Check console)"); // User feedback
     }
   };
@@ -80,16 +92,8 @@ const Toolbar = ({
     });
   };
 
-  const handleExport = () => {
-    // We pass the template state and the live data prop to the exporter
-    exportToPdf(state.pages, data, state.pageSettings);
-  };
-
-  //   const handleDocxExport = async () => {
-  //     console.log("Starting DOCX export...");
-  //     await exportEngine.exportToDocx(getTemplate(), data);
-  //     console.log("DOCX export finished.");
-  //   };
+   
+ 
   const handleDocxExport = async () => {
     setExportOpen(false); // Close the menu
     alert("Generating Word document... Please wait.");
@@ -104,16 +108,16 @@ const Toolbar = ({
   };
 
   return (
-    <div className="bg-white shadow-md p-2 flex items-center justify-between">
-      <div className="flex items-center space-x-4">
-        <h1 className="text-lg font-bold">AavanamKit</h1>
+    <div className="ak:text-black ak:bg-white ak:shadow-md ak:p-2 ak:flex ak:items-center ak:justify-between">
+      <div className="ak:flex ak:items-center ak:space-x-4">
+        <h1 className="ak:text-lg ak:font-bold">AavanamKit</h1>
         <button
           onClick={onOpenGallery}
-          className="flex items-center px-3 py-2 rounded bg-green-600 hover:bg-green-700 text-white text-sm font-medium"
+          className="ak:flex ak:items-center ak:px-3 ak:py-2 ak:rounded ak:bg-green-600 ak:hover:bg-green-700 ak:text-white ak:text-sm ak:font-medium"
         >
-          <FaPlusSquare className="mr-2" /> New from Template
+          <FaPlusSquare className="ak:mr-2" /> New from Template
         </button>
-        <div className="flex items-center space-x-2 border-l pl-4">
+        <div className="ak:flex ak:items-center ak:space-x-2 ak:border-l ak:pl-4">
           <button
             onClick={() =>
               addElement("Text", {
@@ -124,13 +128,13 @@ const Toolbar = ({
                 fill: "black",
               })
             }
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <FaTextHeight title="Add Text" />
           </button>
           <button
             onClick={() => addElement("Table", {})}
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <FaTable title="Add Advanced Table" />
           </button>
@@ -144,7 +148,7 @@ const Toolbar = ({
                 src: "https://placehold.co/100x100/EEE/31343C?text=Image",
               })
             }
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <FaImage title="Add Image" />
           </button>
@@ -159,7 +163,7 @@ const Toolbar = ({
                 fill: "blue",
               })
             }
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <FaSquare title="Add Shape" />
           </button>
@@ -173,7 +177,7 @@ const Toolbar = ({
                 height: 50,
               })
             }
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <FaBarcode title="Add Barcode" />
           </button>
@@ -189,7 +193,7 @@ const Toolbar = ({
                 strokeWidth: 2,
               })
             }
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <svg
               width="16"
@@ -220,80 +224,96 @@ const Toolbar = ({
                 ],
               })
             }
-            className="p-2 rounded hover:bg-gray-200"
+            className="ak:p-2 ak:rounded ak:hover:bg-gray-200"
           >
             <FaTable title="Add Standard Table" />
           </button>
           <button
             onClick={onOpenSettings}
-            className="flex items-center px-3 py-2 rounded bg-gray-200 hover:bg-gray-300 text-sm font-medium"
+            className="ak:flex ak:items-center ak:px-3 ak:py-2 ak:rounded ak:bg-gray-200 ak:hover:bg-gray-300 ak:text-sm ak:font-medium"
           >
-            <FaCog className="mr-2" /> Page Settings
+            <FaCog className="ak:mr-2" /> Page Settings
           </button>
         </div>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="ak:flex ak:items-center ak:space-x-2">
+
+            {/* <button
+          onClick={toggleTheme}
+          className="ak-p-2 ak-rounded-full hover:ak-bg-gray-200 dark:hover:ak-bg-gray-700 ak-text-gray-600 dark:ak-text-gray-300"
+          title="Toggle Theme"
+        >
+          {state.theme === 'light' ? <FaMoon /> : <FaSun />}
+        </button> */}
         <button
           onClick={onOpenSchema}
-          className="flex items-center px-3 py-2 rounded bg-gray-200 hover:bg-gray-300 text-sm font-medium"
+          className="ak:flex ak:items-center ak:px-3 ak:py-2 ak:rounded ak:bg-gray-200 ak:hover:bg-gray-300 ak:text-sm ak:font-medium"
         >
-          <FaDatabase className="mr-2" /> Data Schema
+          <FaDatabase className="ak:mr-2" /> Data Schema
         </button>
         <button
           onClick={handleSave}
-          className="flex items-center px-3 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+          className="ak:flex ak:items-center ak:px-3 ak:py-2 ak:rounded ak:bg-blue-600 ak:hover:bg-blue-700 ak:text-white ak:text-sm ak:font-medium"
         >
-          <FaSave className="mr-2" /> Save Template
+          <FaSave className="ak:mr-2" /> Save Template
         </button>
 
-        <div className="relative">
+        <div className="ak:relative">
+
+            {/* <ThemeSwitcher /> */}
           <button
             onClick={() => setExportOpen(!isExportOpen)}
-            className="flex items-center px-3 py-2 rounded bg-red-600 hover:bg-red-700 text-white text-sm font-medium"
+            className="ak:flex ak:items-center ak:px-3 ak:py-2 ak:rounded ak:bg-red-600 ak:hover:bg-red-700 ak:text-white ak:text-sm ak:font-medium"
           >
             Export
           </button>
           {isExportOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+            <div className="ak:absolute ak:right-0 ak:mt-2 ak:w-48 ak:bg-white ak:rounded-md ak:shadow-lg ak:z-10">
               <a
                 onClick={() => exportEngine.exportToPdf(getTemplate(), data)}
-                className="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="ak:cursor-pointer ak:flex ak:items-center ak:px-4 ak:py-2 ak:text-sm ak:text-gray-700 ak:hover:bg-gray-100"
               >
-                <FaFilePdf className="mr-2" /> PDF
+                <FaFilePdf className="ak:mr-2" /> PDF
               </a>
               <a
                 onClick={handleDocxExport}
                 // onClick={() => exportEngine.exportToDocx(getTemplate(), data)}
-                className="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="ak:cursor-pointer ak:flex ak:items-center ak:px-4 ak:py-2 ak:text-sm ak:text-gray-700 ak:hover:bg-gray-100"
               >
-                <FaFileWord className="mr-2" /> Word (.docx)
+                <FaFileWord className="ak:mr-2" /> Word (.docx)
               </a>
               <a
                 onClick={() =>
                   exportEngine.exportToHtmlFile(getTemplate(), data)
                 }
-                className="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="ak:cursor-pointer ak:flex ak:items-center ak:px-4 ak:py-2 ak:text-sm ak:text-gray-700 ak:hover:bg-gray-100"
               >
-                <FaFileCode className="mr-2" /> HTML
+                <FaFileCode className="ak:mr-2" /> HTML
               </a>
               <a
                 onClick={() =>
                   exportEngine.exportToPrintView(getTemplate(), data)
                 }
-                className="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="ak:cursor-pointer ak:flex ak:items-center ak:px-4 ak:py-2 ak:text-sm ak:text-gray-700 ak:hover:bg-gray-100"
               >
-                <FaPrint className="mr-2" /> Print Preview
+                <FaPrint className="ak:mr-2" /> Print Preview
               </a>
               <a
                 onClick={() =>
                   exportEngine.exportToPrinter(getTemplate(), data)
                 }
-                className="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="ak:cursor-pointer ak:flex ak:items-center ak:px-4 ak:py-2 ak:text-sm ak:text-gray-700 ak:hover:bg-gray-100"
               >
-                <FaPrint className="mr-2" /> Print Directly
+                <FaPrint className="ak:mr-2" /> Print Directly
               </a>
+
+         
             </div>
+
+            
           )}
+
+               
         </div>
       </div>
     </div>

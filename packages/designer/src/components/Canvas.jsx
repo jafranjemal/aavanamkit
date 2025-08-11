@@ -26,7 +26,7 @@ const PageBackground = ({ page, onDeselect }) => {
   const corsProxy = "https://corsproxy.io/?";
   const [img] = useImage(corsProxy + page.backgroundImage, "Anonymous");
 
-  console.log("page.backgroundImage ", page);
+ 
   return (
     <>
       {/* Background Color */}
@@ -155,10 +155,10 @@ const Canvas = () => {
   return (
     <div
       ref={canvasContainerRef}
-      className="flex-grow bg-gray-200 p-8 overflow-auto"
+      className="ak:flex-grow ak:bg-gray-200 ak:p-8 ak:overflow-auto"
     >
       <div
-        className="mx-auto"
+        className="ak:mx-auto"
         style={{
           transform: `scale(${zoom})`,
           transformOrigin: "top center",
@@ -168,7 +168,7 @@ const Canvas = () => {
         {pages.map((page) => (
           <div
             key={page.id}
-            className="bg-white shadow-lg mx-auto mb-8"
+            className="ak:bg-white ak:shadow-lg ak:mx-auto ak:mb-8"
             style={{ width: page.width, height: page.height }}
           >
             <Stage

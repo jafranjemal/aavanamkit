@@ -1,5 +1,6 @@
 import jsPDF from "jspdf";
-import Konva from "konva";
+import * as Konva from "konva";
+
 import useImage from "use-image"; // We need this for async image loading
 
 // A helper function to calculate the wrapped height of a text string.

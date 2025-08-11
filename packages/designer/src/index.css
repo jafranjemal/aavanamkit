@@ -1,8 +1,60 @@
-@import "tailwindcss";
+/* Import Tailwind's base styles */
+@import "tailwindcss" prefix(ak);
 
-/* Example of CSS-first theme token customization */
+/* Define all our theme variables inside the @layer base */
+@layer base {
+  /* 1. Default (Light Theme with Blue Accent) */
+  :root {
+    --background: #FFFFFF; /* white */
+    --foreground: #020817; /* slate-950 */
+    --card: #FFFFFF; /* white */
+    --card-foreground: #020817; /* slate-950 */
+    --primary: #1E40AF; /* blue-800 */
+    --primary-foreground: #EFF6FF; /* blue-50 */
+    --muted: #F1F5F9; /* slate-100 */
+    --muted-foreground: #64748B; /* slate-500 */
+    --border: #E2E8F0; /* slate-200 */
+  }
+
+  /* 2. Dark Theme Overrides */
+  .dark {
+    --background: #020817; /* slate-950 */
+    --foreground: #F8FAFC; /* slate-50 */
+    --card: #0F172A; /* slate-900 */
+    --card-foreground: #F8FAFC; /* slate-50 */
+    --primary: #60A5FA; /* blue-400 */
+    --primary-foreground: #0F172A; /* slate-900 */
+    --muted: #1E293B; /* slate-800 */
+    --muted-foreground: #94A3B8; /* slate-400 */
+    --border: #1E293B; /* slate-800 */
+  }
+
+  /* 3. Accent Color Overrides */
+  .theme-green {
+    --primary: #16A34A; /* green-600 */
+    --primary-foreground: #F0FDF4; /* green-50 */
+  }
+  .dark.theme-green {
+    --primary: #22C55E; /* green-500 */
+    --primary-foreground: #052E16; /* green-950 */
+  }
+  
+  .theme-orange {
+    --primary: #EA580C; /* orange-600 */
+    --primary-foreground: #FFF7ED; /* orange-50 */
+  }
+  .dark.theme-orange {
+    --primary: #F97316; /* orange-500 */
+    --primary-foreground: #431407; /* orange-950 */
+  }
+}
+
+/* This is the bridge that connects our variables to Tailwind's color names */
 @theme {
-  --font-display: "Inter", sans-serif;
-  --color-primary: oklch(0.85 0.12 120);
-  --spacing: 0.25rem;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
 }

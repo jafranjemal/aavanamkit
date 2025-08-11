@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import JSON5 from "json5";
 // --- Initial State ---
 const initialState = {
+   theme: 'light',
   pageSettings: {
     mode: "paged", // 'paged' or 'roll'
     size: "a4",
@@ -37,6 +38,7 @@ export const ActionTypes = {
   UPDATE_PAGE_SETTINGS: "UPDATE_PAGE_SETTINGS",
   LOAD_TEMPLATE: "LOAD_TEMPLATE",
   SET_ZOOM: "SET_ZOOM",
+   SET_THEME: 'SET_THEME', 
 };
 
 export const PageSizes = {
@@ -61,9 +63,16 @@ const normalizeJson = (schemaText) => {
     return null;
   }
 };
+
 // --- Reducer Function ---
 const designerReducer = (state, action) => {
   switch (action.type) {
+
+    case ActionTypes.SET_THEME: {
+    return { ...state, theme: action.payload.theme };
+}
+
+
     case ActionTypes.ADD_ELEMENT: {
       const { pageId, elementType, properties } = action.payload;
       const newElement = {

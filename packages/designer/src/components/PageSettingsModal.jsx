@@ -45,7 +45,7 @@ const PageSettingsModal = ({ isOpen, onClose }) => {
         ]}
       />
       {pageSettings.mode === "paged" && (
-        <div className="p-2 border rounded my-2">
+        <div className="ak:p-2 ak:border ak:rounded ak:my-2">
           <PropertySelect
             label="Page Size"
             value={pageSettings.size}
@@ -58,7 +58,7 @@ const PageSettingsModal = ({ isOpen, onClose }) => {
             ]}
           />
           {pageSettings.size === "custom" && (
-            <div className="grid grid-cols-2 gap-4 my-2 p-2 border rounded">
+            <div className="ak:grid ak:grid-cols-2 ak:gap-4 ak:my-2 ak:p-2 ak:border ak:rounded">
               <PropertyInput
                 label="Width (pt)"
                 type="number"
@@ -90,7 +90,7 @@ const PageSettingsModal = ({ isOpen, onClose }) => {
       )}
 
       {pageSettings.mode === "roll" && (
-        <div className="p-2 border rounded my-2">
+        <div className="ak:p-2 ak:border ak:rounded ak:my-2">
           <PropertyInput
             label="Width (pt)"
             type="number"
@@ -99,14 +99,14 @@ const PageSettingsModal = ({ isOpen, onClose }) => {
               handleSettingChange("width", parseInt(e.target.value))
             }
           />
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="ak:text-xs ak:text-gray-500 ak:mt-1">
             Height is determined by content.
           </p>
         </div>
       )}
-      <div className="mt-4 pt-4 border-t">
-        <h4 className="font-semibold mb-2">Margins (pt)</h4>
-        <div className="grid grid-cols-2 gap-4">
+      <div className="ak:mt-4 ak:pt-4 ak:border-t">
+        <h4 className="ak:font-semibold ak:mb-2">Margins (pt)</h4>
+        <div className="ak:grid ak:grid-cols-2 ak:gap-4">
           <PropertyInput
             label="Top"
             type="number"

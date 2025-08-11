@@ -10,8 +10,8 @@ import {
   AlignmentType,
   WidthType,
 } from "docx";
-import toHex from "colornames";
-import JsBarcode from "jsbarcode";
+import * as colornames from "colornames";
+import * as JsBarcode from "jsbarcode";
 
 // --- Helper Functions ---
 
@@ -21,6 +21,7 @@ const get = (obj, path) =>
 function normalizeColor(colorStr) {
   if (!colorStr || typeof colorStr !== "string") return "000000";
   if (colorStr.startsWith("#")) return colorStr.replace("#", "");
+  const toHex = colornames.default || colornames;
   const hex = toHex(colorStr.toLowerCase());
   return hex ? hex.replace("#", "") : "000000";
 }
@@ -77,7 +78,8 @@ const generateShapeBuffer = (el) => {
 const generateBarcodeBuffer = (el) => {
   const canvas = document.createElement("canvas");
   try {
-    JsBarcode(canvas, el.text, {
+    const barcodeGenerator = JsBarcode.default || JsBarcode;
+    barcodeGenerator(canvas, el.text, {
       displayValue: false,
       margin: 0,
       width: 2,
