@@ -1,13 +1,19 @@
+Are you looking for a powerful, open-source solution to generate PDF and DOCX documents in your web application? **AavanamKit** is a modern document generation toolkit designed to fix the broken workflow of hardcoded layouts. It provides a full-stack ecosystem, featuring a visual, drag-and-drop **React component** for template design and a headless **Node.js engine** for high-quality, server-side document creation. Stop fighting with print CSS and clunky libraries—AavanamKit is the definitive **invoice generator** and **report builder** that saves you time and empowers your users.
+AavanamKit is built on top of the popular **React** and **Node.js** frameworks
+
+
 <div align="center">
   <br />
   <p>
-    <img src="./AavanamKitLogo.png" alt="AavanamKit Logo" width="150" />
+    <img src="https://res.cloudinary.com/dpkxck2uh/image/upload/v1755062483/AavanamKitLogo_ex7mfl.png" alt="AavanamKit Logo" width="150" />
   </p>
   <h1 align="center">AavanamKit</h1>
   <p align="center">
-    The open-source document generation ecosystem that gives the design power back to your users.
+    The open-source document design system that dramatically speeds up your development workflow.
     <br />
     <a href="https://aavanamkit-demo.vercel.app/"><strong>Explore the Live Demo »</strong></a>
+    ·
+    <a href="https://aavanamkit-docs.vercel.app/"><strong>Read the Docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/jafranjemal/aavanamkit/issues">Report Bug</a>
@@ -22,39 +28,39 @@
 [![npm version](https://img.shields.io/npm/v/@aavanamkit/designer)](https://www.npmjs.com/package/@aavanamkit/designer)
 [![npm downloads](https://img.shields.io/npm/dm/@aavanamkit/designer)](https://www.npmjs.com/package/@aavanamkit/designer)
 
+### Stop Coding Layouts Blindly.
 
-## The Endless Cycle We All Hate
+You know the process. You need to generate a PDF invoice. You open your editor and start writing code like `` `doc.text('Total:', 400, 750)` ``. You save, re-run your script, and check the output. The text is a few pixels off. You go back, guess a new coordinate, and repeat the cycle. It's slow, frustrating, and completely disconnected from the visual nature of the task.
 
-Let's be honest. You've been there. You build a beautiful, dynamic application, and then comes the inevitable request: "We need to generate invoices as PDFs."
+The alternative is often worse: fighting with print CSS to convert HTML to a PDF, only to end up with a low-quality, blurry document that looks terrible on a professional invoice or a thermal printer receipt.
 
-So you do it. You pull in a clunky library, spend days fighting with its rigid API, and write endless lines of imperative code like `doc.moveTo(x, y)`. Or maybe you go the HTML-to-PDF route, spending hours tweaking a separate print stylesheet, wrestling with `!important` overrides and unpredictable page breaks. Finally, after all that, it's done. A week later, the email arrives:
+**AavanamKit is designed to fix this broken workflow.**
 
-> "Hey, this is great! Quick change: can we move the logo to the right, make the 'Total' bold, add our new company slogan to the footer, and maybe add a column for 'Discount' to the table? Should be simple, right?"
+### A Visual Development Tool for Documents
 
-Suddenly, you're not a software engineer anymore. You're a report designer, trapped in a frustrating and unprofitable loop. Every minor layout change is a new development ticket, a new branch, a new deployment. The marketing team wants a promotional banner, accounting needs a new disclaimer, and you're the bottleneck for all of it.
+AavanamKit is a complete ecosystem that treats document layouts not as a coding chore, but as a visual design process.
 
-This is a massive industry gap. We build applications with dynamic, component-based frontends that users can control, but the moment we need to generate a document, we revert to rigid, hardcoded templates. This creates a frustrating disconnect between the flexibility of the app and the static nature of its output.
+Our core philosophy is simple: **Design your document visually first, then use the exported JSON as your production-ready template.**
 
-## AavanamKit is the Solution
+Instead of guessing at coordinates, you use our powerful visual designer to draw your layout. You see exactly how it will look in real-time. When you're done, you export a clean JSON object that represents your entire design. This JSON **is your layout code**, ready to be used by our headless backend engine.
 
-**AavanamKit** is a complete ecosystem built to solve this problem once and for all. We believe developers should build systems, not documents. Our philosophy is to treat document layouts just like any other piece of user-managed content in your application.
-
-Our solution is simple but powerful: **We give the design power to your users.**
-
-Instead of you building a static invoice, you embed our powerful visual designer into your application's admin panel. Your users—the shop manager, the accountant, the admin—can create, edit, and manage their own document templates with a familiar, intuitive drag-and-drop interface. They change the logo for a seasonal sale. They add the new slogan themselves. They update the terms and conditions without ever creating a support ticket.
-
-You build the tool once, and you are free. You empower your users, eliminate a whole category of tedious change requests, and get back to building the features that matter.
-
-## 🚀 Live Demo & Sample Templates
-
-Seeing is believing. We've built a full live demo where you can experience the power of the AavanamKit designer right in your browser, no installation required.
- 
 ---
- ## 🚀 Live Demo & Documentation
+### 🚀 Live Demo & Sample Templates
+
+Seeing is believing. We've built a full live demo where you can experience the power of the AavanamKit designer right in your browser.
+
+**[ &raquo; Try the Live Demo Now! ](https://aavanamkit-demo.vercel.app/)**
+
+![AavanamKit Live Demo GIF](https://res.cloudinary.com/dpkxck2uh/image/upload/v1754988806/msedge_gnOKzkDB1T_cfqagj.gif)
+
+The demo comes pre-loaded with a gallery of professional templates. The complete source code for these templates can be found in the [`packages/designer/src/lib/templates.js`](./packages/designer/src/lib/templates.js) file.
+
+---
+
+ ## 🚀 Documentation
  
- Seeing is believing. We've built a full live demo and a comprehensive documentation site.
- 
- * **[ &raquo; Try the Live Demo Now! ](https://aavanamkit-demo.vercel.app/)**
+ Seeing is believing. We've built a full a comprehensive documentation site.
+
  * **[ &raquo; Read the Official Docs ](https://aavanamkit-docs.vercel.app/)**
  
  The demo comes pre-loaded with a gallery of professional templates. The complete source code for these templates can be found in the [`packages/designer/src/lib/templates.js`](./packages/designer/src/lib/templates.js) file.
@@ -70,60 +76,25 @@ The demo comes pre-loaded with a gallery of professional templates for a mobile 
 
 You can access these templates by clicking the **"New from Template"** button in the demo. The complete source code for these templates can be found in `packages/designer/src/lib/templates.js`.
 
+
+
 ## ✨ The AavanamKit Ecosystem
 
-**AavanamKit** is a monorepo containing two distinct but perfectly synchronized packages. Think of them as the **Architect** and the **Construction Crew**.
+AavanamKit is a monorepo containing two distinct but perfectly synchronized packages:
 
-### 🎨 `@aavanamkit/designer` (The Architect)
+### 🎨 `@aavanamkit/designer` (Your Visual Dev Tool)
+A powerful, embeddable **React component** that provides a full WYSIWYG "design studio." Use it in your local development environment to visually build and export your document templates.
 
-This is the powerful, embeddable React component that provides a full WYSIWYG "design studio" for your users. It's the visual heart of the system where the blueprints (`template.json`) are created.
+- **Complete Visual Canvas:** A full WYSIWYG experience. Drag, drop, resize, rotate, and style every element with an intuitive properties panel.
+- **Powerful Data Binding:** Visually map any element's property to your application's data schema. The designer intelligently flattens complex, nested JSON for easy use.
+- **Advanced Components Built-In:** Go beyond simple text and images with a powerful, **auto-paginating Table** that handles page breaks automatically, plus support for Barcodes and various Shapes.
+- **Total Page Control:** Full control over your document's layout. Choose standard sizes like A4/Letter, define custom dimensions, switch between portrait/landscape, or use the **Continuous Roll** mode for dynamic-height thermal printer receipts.
+- **Professional Workflow Tools:** Speed up your design process with keyboard shortcuts, canvas zoom & pan, and a built-in gallery of production-ready templates to start from.
+- **Conditional Rendering:** Easily set rules to show or hide elements based on your live data (e.g., only show a "Discount Applied" label if `discount > 0`).
+- **Pre-Printed Stationery Support:** Upload an image of your pre-printed paper as a background to perfectly align your digital design with your physical media.
+- **Instant JSON Export:** Get a clean, production-ready template JSON with one click.
 
-- **Visual Canvas**: Drag, drop, resize, and style every element with intuitive controls.
-- **Data Binding**: Your users can visually link design elements directly to your application's data schema.
-- **Advanced Components**: Includes a powerful, auto-paginating table that intelligently handles page breaks and header repetition.
-
-**» Learn more about the Designer**
-
-### ⚙️ `@aavanamkit/engine` (The Construction Crew)
-
-This is a pure, headless Node.js library with zero browser dependencies. It takes the blueprints created by the designer, merges them with your live data, and builds the final, pixel-perfect documents on your server.
-
-- **Multi-Format**: Generate PDF, DOCX, and HTML from the same template.
-- **Automated**: Perfect for API responses, scheduled jobs, or sending email attachments.
-- **Robust**: Intelligently handles missing template properties to prevent crashes from incomplete or older template versions.
-
-**» Learn more about the Engine**
-
-# @aavanamkit/designer
-
-The visual, embeddable React component for designing data-driven document templates.
-
----
-
-## ✨ About The Component
-
-`@aavanamkit/designer` is a complete **design studio in a box**. It provides a powerful WYSIWYG canvas that you can embed directly into your React application, allowing your users to create and manage their own document layouts without writing any code.
-
----
-
-## 🚀 Core Features
-
-- **Full WYSIWYG Canvas**  
-  A complete drag-and-drop interface for designing invoices, receipts, tickets, and more.
-
-- **Component-Based Elements**  
-  Includes Text, Image, Shape, Barcode, and an advanced, auto-paginating Table.
-
-- **Powerful Data Binding**  
-  Easily bind any element to your application's data structure via a `schema` prop.
-
-- **Live Template Gallery**  
-  Provide your users with professional, pre-built templates to get them started.
-
-- **Flexible Page Control**  
-  Supports standard page sizes (A4, Letter), custom dimensions, and a "Continuous Roll" mode for thermal printers.
-
----
+ 
 
 ## 📦 Installation
 
@@ -188,6 +159,27 @@ function MyTemplateEditor() {
 | `data`    | `object` | ❌ No    | Sample data used for live previews and in-browser exporting.                |
 
 ---
+
+# The Bonus: Safe Client Empowerment
+
+And if you want to go the extra mile, you can then embed the same `` `@aavanamkit/designer` `` component into your application's admin panel. This allows your clients to safely handle their own **visual** changes without ever needing to touch the underlying data structure.
+
+**What clients *can* do:**
+- Change element positions (move the logo, rearrange footer text).
+- Adjust styling (font sizes, colors, bold/italics).
+- Upload their own images, including using a scan of their **pre-printed stationery as a background** to perfectly align their design.
+
+**What clients *cannot* do:**
+- They **cannot** change the data schema or the data bindings. The core data structure is controlled by you, the developer, ensuring data integrity is always maintained.
+
+### ❤️ Contributing & Support
+
+The AavanamKit Project is a community-driven, open-source initiative. Your help makes it better.
+
+- [ &raquo; Read our Contribution Guide ](./CONTRIBUTING.md)
+- [ &raquo; Sponsor the Project on GitHub ](https://github.com/sponsors/jafranjemal)
+
+ 
 
 ## 🪪 License
 
